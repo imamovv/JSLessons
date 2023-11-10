@@ -1,9 +1,7 @@
-let firstNumber = prompt('Введите первое число');
-let secondNumber = prompt('Введите второе число');
-if (firstNumber === secondNumber) {
-    console.log(`Числа равны`);
-} else if (firstNumber>secondNumber) {
-    console.log(`${secondNumber}`);
-} else {
-    console.log(`${firstNumber}`);
-};
+let buttonEl = document.querySelector('.button');
+let spanEl = document.querySelector('.result');
+let counter = 0;
+buttonEl.addEventListener('click', function (e) {
+    spanEl.textContent = `${++counter*3}`; {      
+    } 
+});
