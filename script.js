@@ -1,7 +1,10 @@
-let buttonEl = document.querySelector('.button');
-let spanEl = document.querySelector('.result');
-let counter = 0;
-buttonEl.addEventListener('click', function (e) {
-    spanEl.textContent = `${++counter*3}`; {      
-    } 
-});
+let userNumber = +prompt('Введите число');
+for (i = 0; i <= userNumber; i++) {
+    console.log(i);   
+}
+
+for (i = 0; i <= userNumber; i++) {
+    if (i%3===0&&i>0) {
+        console.log(i);
+    }  
+}
