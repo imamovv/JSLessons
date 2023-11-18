@@ -1,10 +1,17 @@
-let userNumber = +prompt('Введите число');
-for (i = 0; i <= userNumber; i++) {
-    console.log(i);   
+function hoursToSeconds(hours) {
+    return hours * 3600;
 }
 
-for (i = 0; i <= userNumber; i++) {
-    if (i%3===0&&i>0) {
-        console.log(i);
-    }  
+console.log(hoursToSeconds(2));
+
+function generateRandomPassword(length) {
+    let charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    let password = "";
+    for (let i = 0; i < length; i++) {
+        let randomIndex = Math.floor(Math.random() * charset.length);
+        password += charset[randomIndex];
+    }
+    return password;
 }
+
+console.log(generateRandomPassword(8));
