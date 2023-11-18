@@ -1,17 +1,10 @@
-function hoursToSeconds(hours) {
-    return hours * 3600;
-}
+let salaries = [2000, 3000, 4000, 5000];
+let taxedSalaries = salaries.map(salary => salary * 0.87);
+console.log(taxedSalaries);
 
-console.log(hoursToSeconds(2));
-
-function generateRandomPassword(length) {
-    let charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-    let password = "";
-    for (let i = 0; i < length; i++) {
-        let randomIndex = Math.floor(Math.random() * charset.length);
-        password += charset[randomIndex];
-    }
-    return password;
-}
-
-console.log(generateRandomPassword(8));
+let texts = ["Hello", "World", "JavaScript"];
+texts.forEach(text => {
+  let p = document.createElement('p');
+  p.textContent = text;
+  document.body.appendChild(p);
+});
