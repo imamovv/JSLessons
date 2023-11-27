@@ -1,29 +1,17 @@
-const app = document.querySelector('#app');
-const news = [
-  {
-    header: 'Первая новость',
-    content: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellendus delectus ipsam, nesciunt distinctio fugiat temporibus?',
-    postDate: '2022-10-11'},
-  {
-    header: 'Вторая новость',
-    content: 'Dignissimos sapiente temporibus quaerat omnis? Commodi exercitationem iure esse earum voluptatem neque, suscipit necessitatibus quis corrupti, nostrum sed similique,',
-    postDate: '2022-12-14'},
-]
+const arr = [3, 5, 9, 10, 1];
 
-news.forEach(element => {
-  const newsEl = document.createElement('div');
-  const headerEl=document.createElement('h2');
-  const contentEl=document.createElement('p');
-  const dateEl=document.createElement('p');
-  newsEl.className = 'news';
-  headerEl.className = 'news__header';
-  contentEl.className = 'news__content';
-  dateEl.className = 'news__date';
-  headerEl.innerText=element.header;
-  contentEl.innerText=element.content;
-  dateEl.innerText=element.postDate;
-  app.append(newsEl);
-  newsEl.appendChild(headerEl);
-  newsEl.appendChild(contentEl);
-  newsEl.appendChild(dateEl);
+const filteredArr = arr.filter(num => num <= 5);
+const user = { name: "Alex", age: 30, email: "alex@example.com", address: { city: "NewYork", zip: "10001" } };
+
+filteredArr.forEach(num => {
+  const p = document.createElement('p');
+  p.textContent = num;
+  document.body.appendChild(p);
 });
+
+
+const userInfo = {
+  name: user.name,
+  city: user.address.city
+};
+console.log(userInfo);
