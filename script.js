@@ -1,17 +1,28 @@
-const arr = [3, 5, 9, 10, 1];
+class Student {
+  constructor(name, age) {
+    this.name = name;
+    let _age = age;
 
-const filteredArr = arr.filter(num => num <= 5);
-const user = { name: "Alex", age: 30, email: "alex@example.com", address: { city: "NewYork", zip: "10001" } };
+    this.getAge = () => _age;
+    this.setAge = (newAge) => {
+      if (newAge > 0) {
+        _age = newAge;
+      } else {
+        console.log('Возраст должен быть положительным числом!');
+      }
+    };
+  }
 
-filteredArr.forEach(num => {
-  const p = document.createElement('p');
-  p.textContent = num;
-  document.body.appendChild(p);
-});
+  printInfo() {
+    console.log(`Имя: ${this.name}, Возраст: ${this.getAge()}`);
+  }
 
+  haveBirthday() {
+    this.setAge(this.getAge() + 1);
+  }
+}
 
-const userInfo = {
-  name: user.name,
-  city: user.address.city
-};
-console.log(userInfo);
+const student1 = new Student('Ильнур', 20);
+student1.printInfo(); 
+student1.haveBirthday();
+student1.printInfo(); 
