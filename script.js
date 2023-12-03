@@ -1,28 +1,52 @@
-class Student {
-  constructor(name, age) {
-    this.name = name;
-    let _age = age;
-
-    this.getAge = () => _age;
-    this.setAge = (newAge) => {
-      if (newAge > 0) {
-        _age = newAge;
-      } else {
-        console.log('Возраст должен быть положительным числом!');
-      }
-    };
+class Task {
+  constructor(description) {
+    this.description = description;
+    this.completed = false;
   }
 
-  printInfo() {
-    console.log(`Имя: ${this.name}, Возраст: ${this.getAge()}`);
-  }
+  createList() {
+    const firstLvl = document.querySelector('.firstlvl');
+    const secondLvl = document.querySelector('.secondlvl');
+    const listItem = document.createElement('li');
+    listItem.textContent = this.description;
 
-  haveBirthday() {
-    this.setAge(this.getAge() + 1);
+    const completeButton = document.createElement('button');
+    completeButton.textContent = 'Выполнено';
+    completeButton.addEventListener('click', () => {
+      this.completed = true;
+      listItem.classList.add('completed');
+    });
+
+    const deleteButton = document.createElement('button');
+    deleteButton.textContent = 'Удалить';
+    deleteButton.addEventListener('click', () => {
+      firstLvl.removeChild(listItem);
+      secondLvl.removeChild(completeButton);
+      secondLvl.removeChild(deleteButton);
+
+    });
+
+    firstLvl.appendChild(listItem);
+    secondLvl.appendChild(completeButton);
+    secondLvl.appendChild(deleteButton);
+    firstLvl.appendChild(listItem);
   }
 }
 
-const student1 = new Student('Ильнур', 20);
-student1.printInfo(); 
-student1.haveBirthday();
-student1.printInfo(); 
+function addTaskFunction() {
+  const newTask = document.getElementById('newTask').value;
+  if (newTask !== '') {
+    const task = new Task(newTask);
+    task.createList();
+    document.getElementById('newTask').value = '';
+  }
+}
+
+
+document.getElementById('addTask').addEventListener('click', addTaskFunction);
+
+document.getElementById('newTask').addEventListener('keypress', function (e) {
+  if (e.key === 'Enter') {
+    addTaskFunction();
+  }
+});

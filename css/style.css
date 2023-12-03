@@ -1,0 +1,28 @@
+li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+.completed {
+    text-decoration: line-through;
+}
+button {
+    margin-left: 10px;
+}
+.formQuests {
+    font-family: sans-serif;
+    text-align: center;
+}
+.firstlvl {
+    font-family: sans-serif;
+    text-align: left;
+}
+.secondlvl {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.levels {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
