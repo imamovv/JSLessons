@@ -1,52 +1,20 @@
-class Task {
-  constructor(description) {
-    this.description = description;
-    this.completed = false;
+const button = document.getElementById('toggleButton');
+const content = document.getElementById('content');
+
+let isContentVisible = true;
+    
+button.addEventListener('click', function(){ 
+  if (isContentVisible) {
+    //content.style.display = 'none';
+    content.style.height = '0px' ;
+    content.style.animation = 'fadeOut 2s ease-in-out';
+    isContentVisible = false;
   }
-
-  createList() {
-    const firstLvl = document.querySelector('.firstlvl');
-    const secondLvl = document.querySelector('.secondlvl');
-    const listItem = document.createElement('li');
-    listItem.textContent = this.description;
-
-    const completeButton = document.createElement('button');
-    completeButton.textContent = 'Выполнено';
-    completeButton.addEventListener('click', () => {
-      this.completed = true;
-      listItem.classList.add('completed');
-    });
-
-    const deleteButton = document.createElement('button');
-    deleteButton.textContent = 'Удалить';
-    deleteButton.addEventListener('click', () => {
-      firstLvl.removeChild(listItem);
-      secondLvl.removeChild(completeButton);
-      secondLvl.removeChild(deleteButton);
-
-    });
-
-    firstLvl.appendChild(listItem);
-    secondLvl.appendChild(completeButton);
-    secondLvl.appendChild(deleteButton);
-    firstLvl.appendChild(listItem);
-  }
+  else {
+    //content.style.display = 'block';
+    content.style.height = '400px' ;
+    content.style.animation = 'fadeIn 2s ease-in-out';
+    isContentVisible = true;
+  };
 }
-
-function addTaskFunction() {
-  const newTask = document.getElementById('newTask').value;
-  if (newTask !== '') {
-    const task = new Task(newTask);
-    task.createList();
-    document.getElementById('newTask').value = '';
-  }
-}
-
-
-document.getElementById('addTask').addEventListener('click', addTaskFunction);
-
-document.getElementById('newTask').addEventListener('keypress', function (e) {
-  if (e.key === 'Enter') {
-    addTaskFunction();
-  }
-});
+);
