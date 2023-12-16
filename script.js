@@ -1,20 +1,18 @@
-const button = document.getElementById('toggleButton');
-const content = document.getElementById('content');
+const selectElement = document.createElement('select');
+const option1 = document.createElement('option');
+option1.value = 'ascending';
+option1.text = 'По возрастанию';
+const option2 = document.createElement('option');
+option2.value = 'descending';
+option2.text = 'По убыванию';
+selectElement.appendChild(option1);
+selectElement.appendChild(option2);
+document.body.appendChild(selectElement);
 
-let isContentVisible = true;
-    
-button.addEventListener('click', function(){ 
-  if (isContentVisible) {
-    //content.style.display = 'none';
-    content.style.height = '0px' ;
-    content.style.animation = 'fadeOut 2s ease-in-out';
-    isContentVisible = false;
+selectElement.addEventListener('change', function() {
+  if (this.value === 'ascending') {
+    console.log('Сортировка от меньшего к большему');
+  } else if (this.value === 'descending') {
+    console.log('Сортировка от большего к меньшему');
   }
-  else {
-    //content.style.display = 'block';
-    content.style.height = '400px' ;
-    content.style.animation = 'fadeIn 2s ease-in-out';
-    isContentVisible = true;
-  };
-}
-);
+});
